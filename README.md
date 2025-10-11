@@ -6,7 +6,7 @@ Este projeto consiste no desenvolvimento de um sistema de aluguel de carros, foc
 
 ## Pitch
 
-[**Insira aqui o pitch do seu projeto.**]
+https://asavbrm-my.sharepoint.com/:v:/g/personal/marciocard_edu_unisinos_br/EUnud4-N9nFGombLsBlCt-oBu40_U_JK5cirbWKBNlIaug?referrer=Teams.TEAMS-WEB&referrerScenario=MeetingChicletGetLink.view
 
 ## Integrantes da Equipe
 
