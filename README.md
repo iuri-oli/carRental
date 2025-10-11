@@ -27,17 +27,10 @@ Para uma melhor compreensão da arquitetura e do design do sistema, apresentamos
 
 ## Tecnologias Utilizadas
 
-[**Liste aqui as principais tecnologias, linguagens de programação, frameworks e bancos de dados utilizados no desenvolvimento do projeto.** Exemplo: Java, Spring Boot, MySQL, React, etc.]
 
-## Como Executar o Projeto
+- Java 21
+- Spring Boot
+- Swagger/OpenAPI
+- Maven
 
-[**Forneça instruções detalhadas sobre como configurar e executar o projeto localmente.** Inclua pré-requisitos, passos para clonar o repositório, instalar dependências, configurar o banco de dados e iniciar a aplicação.]
-
-## Contribuição
-
-[**Explique como outros desenvolvedores podem contribuir para o projeto.** Inclua diretrizes para submissão de issues, pull requests e padrões de código.]
-
-## Licença
-
-[**Indique a licença sob a qual o projeto está distribuído.** Exemplo: MIT License, Apache License 2.0, etc.]
 
