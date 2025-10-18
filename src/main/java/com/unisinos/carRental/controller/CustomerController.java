@@ -11,15 +11,15 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/customers")
-@Tag(name = "Customer", description = "Endpoints para gerenciar clientes (sem banco de dados)")
+@Tag(name = "Customer", description = "Endpoints para gerenciar clientes")
 public class CustomerController {
 
-    // Simulação de armazenamento em memória
+    
     private final Map<Long, Map<String, Object>> customers = new HashMap<>();
     private long nextId = 1;
 
     @GetMapping
-    @Operation(summary = "Listar todos os clientes", description = "Retorna todos os clientes em memória")
+    @Operation(summary = "Listar todos os clientes", description = "Retorna todos os clientes")
     public List<Map<String, Object>> getAllCustomers() {
         return new ArrayList<>(customers.values());
     }
@@ -38,7 +38,7 @@ public class CustomerController {
     }
 
     @PostMapping
-    @Operation(summary = "Criar um novo cliente", description = "Adiciona um cliente ao mapa em memória")
+    @Operation(summary = "Criar um novo cliente", description = "Adiciona um cliente ao mapa")
     @ApiResponses({
         @ApiResponse(responseCode = "201", description = "Cliente criado com sucesso")
     })
@@ -53,7 +53,7 @@ public class CustomerController {
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Atualizar cliente", description = "Atualiza dados de um cliente no mapa em memória")
+    @Operation(summary = "Atualizar cliente", description = "Atualiza dados de um cliente no mapa")
     public Map<String, Object> updateCustomer(
             @PathVariable Long id,
             @RequestBody Map<String, Object> updates) {
@@ -69,7 +69,7 @@ public class CustomerController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Deletar cliente", description = "Remove um cliente pelo ID (em memória)")
+    @Operation(summary = "Deletar cliente", description = "Remove um cliente pelo ID")
     public Map<String, Object> deleteCustomer(@PathVariable Long id) {
         if (customers.remove(id) != null) {
             return Map.of("mensagem", "Cliente removido com sucesso");
@@ -78,3 +78,4 @@ public class CustomerController {
         }
     }
 }
+
