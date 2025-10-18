@@ -11,15 +11,15 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/maintenance-records")
-@Tag(name = "MaintenanceRecord", description = "Endpoints para gerenciar registros de manutenção (sem banco de dados)")
+@Tag(name = "MaintenanceRecord", description = "Endpoints para gerenciar registros de manutenção")
 public class MaintenanceRecordController {
 
-    // "Banco" em memória
+    
     private final Map<Long, Map<String, Object>> maintenanceRecords = new HashMap<>();
     private long nextId = 1;
 
     @GetMapping
-    @Operation(summary = "Listar todos os registros de manutenção", description = "Retorna todos os registros de manutenção armazenados em memória")
+    @Operation(summary = "Listar todos os registros de manutenção", description = "Retorna todos os registros de manutenção armazenados")
     public List<Map<String, Object>> getAllRecords() {
         return new ArrayList<>(maintenanceRecords.values());
     }
@@ -37,7 +37,7 @@ public class MaintenanceRecordController {
     }
 
     @PostMapping
-    @Operation(summary = "Criar um novo registro de manutenção", description = "Adiciona um novo registro de manutenção em memória")
+    @Operation(summary = "Criar um novo registro de manutenção", description = "Adiciona um novo registro de manutenção")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "201", description = "Registro criado com sucesso")
     })
@@ -51,7 +51,7 @@ public class MaintenanceRecordController {
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Atualizar registro de manutenção", description = "Atualiza os dados de um registro de manutenção existente em memória")
+    @Operation(summary = "Atualizar registro de manutenção", description = "Atualiza os dados de um registro de manutenção existente")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Registro atualizado com sucesso"),
         @ApiResponse(responseCode = "404", description = "Registro não encontrado")
@@ -73,7 +73,7 @@ public class MaintenanceRecordController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Deletar registro de manutenção", description = "Remove um registro de manutenção pelo ID (em memória)")
+    @Operation(summary = "Deletar registro de manutenção", description = "Remove um registro de manutenção pelo ID")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Registro deletado com sucesso"),
         @ApiResponse(responseCode = "404", description = "Registro não encontrado")
@@ -88,4 +88,5 @@ public class MaintenanceRecordController {
         }
     }
 }
+
 
