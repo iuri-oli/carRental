@@ -11,15 +11,15 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/payments")
-@Tag(name = "Payment", description = "Endpoints para gerenciar pagamentos (sem banco de dados)")
+@Tag(name = "Payment", description = "Endpoints para gerenciar pagamentos")
 public class PaymentController {
 
-    // "Banco de dados" em memória
+    
     private final Map<Long, Map<String, Object>> payments = new HashMap<>();
     private long nextId = 1;
 
     @GetMapping
-    @Operation(summary = "Listar todos os pagamentos", description = "Retorna todos os pagamentos armazenados em memória")
+    @Operation(summary = "Listar todos os pagamentos", description = "Retorna todos os pagamentos armazenados")
     public List<Map<String, Object>> getAllPayments() {
         return new ArrayList<>(payments.values());
     }
@@ -37,7 +37,7 @@ public class PaymentController {
     }
 
     @PostMapping
-    @Operation(summary = "Criar um novo pagamento", description = "Adiciona um novo pagamento em memória")
+    @Operation(summary = "Criar um novo pagamento", description = "Adiciona um novo pagamento")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "201", description = "Pagamento criado com sucesso")
     })
@@ -51,7 +51,7 @@ public class PaymentController {
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Atualizar pagamento", description = "Atualiza os dados de um pagamento existente em memória")
+    @Operation(summary = "Atualizar pagamento", description = "Atualiza os dados de um pagamento existente")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Pagamento atualizado com sucesso"),
         @ApiResponse(responseCode = "404", description = "Pagamento não encontrado")
@@ -73,7 +73,7 @@ public class PaymentController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Deletar pagamento", description = "Remove um pagamento pelo ID (em memória)")
+    @Operation(summary = "Deletar pagamento", description = "Remove um pagamento pelo ID")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Pagamento deletado com sucesso"),
         @ApiResponse(responseCode = "404", description = "Pagamento não encontrado")
@@ -88,4 +88,5 @@ public class PaymentController {
         }
     }
 }
+
 
