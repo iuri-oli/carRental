@@ -11,15 +11,15 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/locations")
-@Tag(name = "Location", description = "Endpoints para gerenciar localizações (sem banco de dados)")
+@Tag(name = "Location", description = "Endpoints para gerenciar localizações")
 public class LocationController {
 
-    // Armazenamento em memória
+    
     private final Map<Long, Map<String, Object>> locations = new HashMap<>();
     private long nextId = 1;
 
     @GetMapping
-    @Operation(summary = "Listar todas as localizações", description = "Retorna todas as localizações armazenadas em memória")
+    @Operation(summary = "Listar todas as localizações", description = "Retorna todas as localizações armazenadas")
     public List<Map<String, Object>> getAllLocations() {
         return new ArrayList<>(locations.values());
     }
@@ -37,7 +37,7 @@ public class LocationController {
     }
 
     @PostMapping
-    @Operation(summary = "Criar uma nova localização", description = "Adiciona uma nova localização em memória")
+    @Operation(summary = "Criar uma nova localização", description = "Adiciona uma nova localização")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "201", description = "Localização criada com sucesso")
     })
@@ -51,7 +51,7 @@ public class LocationController {
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Atualizar localização", description = "Atualiza os dados de uma localização existente em memória")
+    @Operation(summary = "Atualizar localização", description = "Atualiza os dados de uma localização existente")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Localização atualizada com sucesso"),
         @ApiResponse(responseCode = "404", description = "Localização não encontrada")
@@ -73,7 +73,7 @@ public class LocationController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Deletar localização", description = "Remove uma localização pelo ID (em memória)")
+    @Operation(summary = "Deletar localização", description = "Remove uma localização pelo ID")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Localização deletada com sucesso"),
         @ApiResponse(responseCode = "404", description = "Localização não encontrada")
@@ -88,5 +88,6 @@ public class LocationController {
         }
     }
 }
+
 
 
