@@ -11,15 +11,15 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/users")
-@Tag(name = "User", description = "Endpoints para gerenciar usuários (sem banco de dados)")
+@Tag(name = "User", description = "Endpoints para gerenciar usuários")
 public class UserController {
 
-    // Simula o "banco" em memória
+    
     private final Map<Long, Map<String, Object>> users = new HashMap<>();
     private long nextId = 1;
 
     @GetMapping
-    @Operation(summary = "Listar todos os usuários", description = "Retorna todos os usuários em memória")
+    @Operation(summary = "Listar todos os usuários", description = "Retorna todos os usuários")
     public List<Map<String, Object>> getAllUsers() {
         return new ArrayList<>(users.values());
     }
@@ -38,7 +38,7 @@ public class UserController {
     }
 
     @PostMapping
-    @Operation(summary = "Criar um novo usuário", description = "Adiciona um novo usuário ao sistema (em memória)")
+    @Operation(summary = "Criar um novo usuário", description = "Adiciona um novo usuário ao sistema")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "201", description = "Usuário criado com sucesso")
     })
@@ -53,7 +53,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Atualizar usuário", description = "Atualiza os dados de um usuário existente (em memória)")
+    @Operation(summary = "Atualizar usuário", description = "Atualiza os dados de um usuário existente")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Usuário atualizado com sucesso"),
         @ApiResponse(responseCode = "404", description = "Usuário não encontrado")
@@ -75,7 +75,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Deletar usuário", description = "Remove um usuário pelo ID (em memória)")
+    @Operation(summary = "Deletar usuário", description = "Remove um usuário pelo ID")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Usuário deletado com sucesso"),
         @ApiResponse(responseCode = "404", description = "Usuário não encontrado")
@@ -91,3 +91,4 @@ public class UserController {
         }
     }
 }
+
