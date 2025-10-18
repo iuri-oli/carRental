@@ -11,15 +11,15 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/vehicles")
-@Tag(name = "Vehicle", description = "Endpoints para gerenciar veículos (sem banco de dados)")
+@Tag(name = "Vehicle", description = "Endpoints para gerenciar veículos")
 public class VehicleController {
 
-    // "Banco de dados" em memória
+    
     private final Map<Long, Map<String, Object>> vehicles = new HashMap<>();
     private long nextId = 1;
 
     @GetMapping
-    @Operation(summary = "Listar todos os veículos", description = "Retorna todos os veículos em memória")
+    @Operation(summary = "Listar todos os veículos", description = "Retorna todos os veículos")
     public List<Map<String, Object>> getAllVehicles() {
         return new ArrayList<>(vehicles.values());
     }
@@ -42,7 +42,7 @@ public class VehicleController {
     }
 
     @PostMapping
-    @Operation(summary = "Criar um novo veículo", description = "Adiciona um novo veículo ao sistema (em memória)")
+    @Operation(summary = "Criar um novo veículo", description = "Adiciona um novo veículo ao sistema")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "201", description = "Veículo criado com sucesso")
     })
@@ -57,7 +57,7 @@ public class VehicleController {
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Atualizar veículo", description = "Atualiza os dados de um veículo existente (em memória)")
+    @Operation(summary = "Atualizar veículo", description = "Atualiza os dados de um veículo existente")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Veículo atualizado com sucesso"),
         @ApiResponse(responseCode = "404", description = "Veículo não encontrado")
@@ -79,7 +79,7 @@ public class VehicleController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Deletar veículo", description = "Remove um veículo pelo ID (em memória)")
+    @Operation(summary = "Deletar veículo", description = "Remove um veículo pelo ID")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Veículo deletado com sucesso"),
         @ApiResponse(responseCode = "404", description = "Veículo não encontrado")
@@ -95,3 +95,4 @@ public class VehicleController {
         }
     }
 }
+
