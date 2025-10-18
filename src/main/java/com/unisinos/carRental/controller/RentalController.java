@@ -11,15 +11,15 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/rentals")
-@Tag(name = "Rental", description = "Endpoints para gerenciar locações (sem banco de dados)")
+@Tag(name = "Rental", description = "Endpoints para gerenciar locações")
 public class RentalController {
 
-    // Simulação de banco de dados em memória
+    
     private final Map<Long, Map<String, Object>> rentals = new HashMap<>();
     private long nextId = 1;
 
     @GetMapping
-    @Operation(summary = "Listar todas as locações", description = "Retorna todas as locações armazenadas em memória")
+    @Operation(summary = "Listar todas as locações", description = "Retorna todas as locações armazenadas")
     public List<Map<String, Object>> getAllRentals() {
         return new ArrayList<>(rentals.values());
     }
@@ -37,7 +37,7 @@ public class RentalController {
     }
 
     @PostMapping
-    @Operation(summary = "Criar uma nova locação", description = "Adiciona uma nova locação ao sistema em memória")
+    @Operation(summary = "Criar uma nova locação", description = "Adiciona uma nova locação ao sistema")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "201", description = "Locação criada com sucesso")
     })
@@ -52,7 +52,7 @@ public class RentalController {
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Atualizar locação", description = "Atualiza os dados de uma locação existente em memória")
+    @Operation(summary = "Atualizar locação", description = "Atualiza os dados de uma locação existente")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Locação atualizada com sucesso"),
         @ApiResponse(responseCode = "404", description = "Locação não encontrada")
@@ -74,7 +74,7 @@ public class RentalController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Deletar locação", description = "Remove uma locação pelo ID (em memória)")
+    @Operation(summary = "Deletar locação", description = "Remove uma locação pelo ID")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Locação deletada com sucesso"),
         @ApiResponse(responseCode = "404", description = "Locação não encontrada")
@@ -90,3 +90,4 @@ public class RentalController {
         }
     }
 }
+
