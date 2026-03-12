@@ -51,40 +51,6 @@ public class RentalController {
         return rentalService.getOne(id);
     }
 
-    // GET /rentals/customer/{customerId}
-    @GetMapping("/customer/{customerId}")
-    @Operation(
-        summary = "Buscar locações por cliente",
-        description = "Retorna todas as locações associadas a um cliente"
-    )
-    @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Lista de locações retornada com sucesso"),
-        @ApiResponse(responseCode = "404", description = "Cliente não encontrado")
-    })
-    public List<Rental> getRentalsByCustomer(
-            @Parameter(description = "UUID do cliente", required = true)
-            @PathVariable UUID customerId) {
-
-        return rentalService.getByCustomer(customerId);
-    }
-
-    // GET /rentals/vehicle/{vehicleId}
-    @GetMapping("/vehicle/{vehicleId}")
-    @Operation(
-        summary = "Buscar locações por veículo",
-        description = "Retorna todas as locações associadas a um veículo"
-    )
-    @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Lista de locações retornada com sucesso"),
-        @ApiResponse(responseCode = "404", description = "Veículo não encontrado")
-    })
-    public List<Rental> getRentalsByVehicle(
-            @Parameter(description = "UUID do veículo", required = true)
-            @PathVariable UUID vehicleId) {
-
-        return rentalService.getByVehicle(vehicleId);
-    }
-
     // POST /rentals
     @PostMapping
     @Operation(
@@ -123,4 +89,5 @@ public class RentalController {
 
         rentalService.delete(id);
     }
+
 }
